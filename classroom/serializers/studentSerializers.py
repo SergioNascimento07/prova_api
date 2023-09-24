@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from ..models.studentModel import Student
-from ..serializers.taskSerializers import TaskSerializer
+from .taskSerializers import TaskSerializer
 
 # Define a serializer class for the 'Student' model
 class StudentSerializer(serializers.ModelSerializer):
