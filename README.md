@@ -71,23 +71,276 @@ Para testar o projeto pode ser utilizado o postman, importando o ```prova_andre_
 - obs: Na collection do postman há também exemplo de dados e respostas passadas em cada requisição.
 ## Documentação da API
 
+#### Cria um aluno
+
+```http
+  POST /students
+```
+
+##### no corpo da requisição:
+
+| Parâmetro   | Tipo       | Descrição                                   |
+| :---------- | :--------- | :------------------------------------------ |
+| `name`        | `string`   | **Obrigatório**. O nome do aluno que você quer criar|
+| `email`        | `string`   | **Obrigatório**. O email do aluno que você quer criar|
+
 #### Retorna todos alunos
 
 ```http
   GET /students
 ```
 
-#### Retorna um item
+#### Retorna um aluno
 
 ```http
-  GET /api/items/${id}
+  GET /students/{id}
 ```
+
+##### na url:
+| Parâmetro   | Tipo       | Descrição                                   |
+| :---------- | :--------- | :------------------------------------------ |
+| `id`      | `string` | **Obrigatório**. O ID do aluno que você quer |
+
+#### Deleta um aluno
+
+```http
+  DELETE /students/{id}
+```
+
+##### na url:
+| Parâmetro   | Tipo       | Descrição                                   |
+| :---------- | :--------- | :------------------------------------------ |
+| `id`      | `string` | **Obrigatório**. O ID do aluno que você quer |
+
+#### Atualiza parcialmente um aluno
+
+```http
+  PATCH /students/{id}
+```
+##### na url:
+| Parâmetro   | Tipo       | Descrição                                   |
+| :---------- | :--------- | :------------------------------------------ |
+| `id`      | `string` | **Obrigatório**. O ID do aluno que você quer |
+
+##### no corpo da requisição:
+| Parâmetro   | Tipo       | Descrição                                   |
+| :---------- | :--------- | :------------------------------------------ |
+| `name`      | `string` | O nome do aluno que você quer definir|
+| `email`      | `string` | O email do aluno que você quer definir|
+
+#### Atualiza completamente um aluno
+
+```http
+  PUT /students/{id}
+```
+##### na url:
+| Parâmetro   | Tipo       | Descrição                                   |
+| :---------- | :--------- | :------------------------------------------ |
+| `id`      | `string` | **Obrigatório**. O ID do aluno que você quer |
+
+##### no corpo da requisição:
+| Parâmetro   | Tipo       | Descrição                                   |
+| :---------- | :--------- | :------------------------------------------ |
+| `name`      | `string` | **Obrigatório**. O nome do aluno que você quer definir|
+| `email`      | `string` | **Obrigatório**. O email do aluno que você quer definir|
+
+#### Retorna as tarefas de um aluno
+
+```http
+  GET /students/{id}/tasks
+```
+
+##### na url:
+| Parâmetro   | Tipo       | Descrição                                   |
+| :---------- | :--------- | :------------------------------------------ |
+| `id`      | `string` | **Obrigatório**. O ID do aluno que você quer |
+
+
+
+
+
+
+#### Cria uma disciplina
+
+```http
+  POST /subjects
+```
+
+##### no corpo da requisição:
 
 | Parâmetro   | Tipo       | Descrição                                   |
 | :---------- | :--------- | :------------------------------------------ |
-| `id`      | `string` | **Obrigatório**. O ID do item que você quer |
+| `name`        | `string`   | **Obrigatório**. O nome da disciplina que você quer criar|
+| `description`        | `string`   | **Obrigatório**. A descrição da disciplina que você quer criar|
 
-#### add(num1, num2)
+#### Retorna todas as disciplinas
 
-Recebe dois números e retorna a sua soma.
+```http
+  GET /subjects
+```
+
+#### Retorna uma disciplina
+
+```http
+  GET /subjects/{id}
+```
+
+##### na url:
+| Parâmetro   | Tipo       | Descrição                                   |
+| :---------- | :--------- | :------------------------------------------ |
+| `id`      | `string` | **Obrigatório**. O ID da disciplina que você quer |
+
+#### Deleta uma disciplina
+
+```http
+  DELETE /subjects/{id}
+```
+
+##### na url:
+| Parâmetro   | Tipo       | Descrição                                   |
+| :---------- | :--------- | :------------------------------------------ |
+| `id`      | `string` | **Obrigatório**. O ID da disciplina que você quer |
+
+#### Atualiza parcialmente uma disciplina
+
+```http
+  PATCH /students/{id}
+```
+##### na url:
+| Parâmetro   | Tipo       | Descrição                                   |
+| :---------- | :--------- | :------------------------------------------ |
+| `id`      | `string` | **Obrigatório**. O ID da disciplina que você quer |
+
+##### no corpo da requisição:
+| Parâmetro   | Tipo       | Descrição                                   |
+| :---------- | :--------- | :------------------------------------------ |
+| `name`      | `string` | O nome da disciplina que você quer definir|
+| `description`      | `string` | A descrição da disciplina que você quer definir|
+
+#### Atualiza completamente um aluno
+
+```http
+  PUT /students/{id}
+```
+##### na url:
+| Parâmetro   | Tipo       | Descrição                                   |
+| :---------- | :--------- | :------------------------------------------ |
+| `id`      | `string` | **Obrigatório**. O ID da disciplina que você quer |
+
+##### no corpo da requisição:
+| Parâmetro   | Tipo       | Descrição                                   |
+| :---------- | :--------- | :------------------------------------------ |
+| `name`      | `string` | **Obrigatório**. O nome da disciplina que você quer definir|
+| `description`      | `string` | **Obrigatório**. A descrição da disciplina que você quer definir|
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#### Cria uma tarefa
+
+```http
+  POST /tasks
+```
+
+##### no corpo da requisição:
+
+| Parâmetro   | Tipo       | Descrição                                   |
+| :---------- | :--------- | :------------------------------------------ |
+| `title`        | `string`   | **Obrigatório**. O titulo da tarefa que você quer criar|
+| `description`        | `string`   | **Obrigatório**. A descrição da tarefa que você quer criar|
+| `due_date`        | `string`   | **Obrigatório**. A data de entrega máxima de entrega da tarefa|
+| `completed`        | `string`   | **Obrigatório**. True ou false para definir o status da atividade|
+| `student`        | `string`   | **Obrigatório**. O id do aluno que aquela tarefa pertence|
+| `subjects`        | `string`   | **Obrigatório**. A lista contendo o id das disciplinas que a tareda faz parte|
+
+
+#### Retorna todas as disciplinas
+
+```http
+  GET /tasks
+```
+
+#### Retorna uma disciplina
+
+```http
+  GET /tasks/{id}
+```
+
+##### na url:
+| Parâmetro   | Tipo       | Descrição                                   |
+| :---------- | :--------- | :------------------------------------------ |
+| `id`      | `string` | **Obrigatório**. O ID da tarefa que você quer |
+
+#### Deleta uma disciplina
+
+```http
+  DELETE /tasks/{id}
+```
+
+##### na url:
+| Parâmetro   | Tipo       | Descrição                                   |
+| :---------- | :--------- | :------------------------------------------ |
+| `id`      | `string` | **Obrigatório**. O ID da tarefa que você quer |
+
+#### Atualiza parcialmente uma tarefa
+
+```http
+  PATCH /students/{id}
+```
+##### na url:
+| Parâmetro   | Tipo       | Descrição                                   |
+| :---------- | :--------- | :------------------------------------------ |
+| `id`      | `string` | **Obrigatório**. O ID da disciplina que você quer |
+
+
+##### no corpo da requisição:
+
+| Parâmetro   | Tipo       | Descrição                                   |
+| :---------- | :--------- | :------------------------------------------ |
+| `title`        | `string`   | O titulo da tarefa que você quer criar|
+| `description`        | `string`   | A descrição da tarefa que você quer criar|
+| `due_date`        | `string`   | A data de entrega máxima de entrega da tarefa|
+| `completed`        | `string`   | True ou false para definir o status da atividade|
+| `student`        | `string`   | O id do aluno que aquela tarefa pertence|
+| `subjects`        | `string`   | A lista contendo o id das disciplinas que a tareda faz parte|
+
+#### Atualiza completamente um aluno
+
+```http
+  PUT /students/{id}
+```
+##### na url:
+| Parâmetro   | Tipo       | Descrição                                   |
+| :---------- | :--------- | :------------------------------------------ |
+| `id`      | `string` | **Obrigatório**. O ID da disciplina que você quer |
+
+
+##### no corpo da requisição:
+
+| Parâmetro   | Tipo       | Descrição                                   |
+| :---------- | :--------- | :------------------------------------------ |
+| `title`        | `string`   | **Obrigatório**. O titulo da tarefa que você quer criar|
+| `description`        | `string`   | **Obrigatório**. A descrição da tarefa que você quer criar|
+| `due_date`        | `string`   | **Obrigatório**. A data de entrega máxima de entrega da tarefa|
+| `completed`        | `string`   | **Obrigatório**. True ou false para definir o status da atividade|
+| `student`        | `string`   | **Obrigatório**. O id do aluno que aquela tarefa pertence|
+| `subjects`        | `string`   | **Obrigatório**. A lista contendo o id das disciplinas que a tareda faz parte|
+
 
